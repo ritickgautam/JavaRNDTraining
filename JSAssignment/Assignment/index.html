@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <title>Expense Manager</title>
+</head>
+
+<body class="bg-success text-white">
+
+    <div class="container ">
+        <h1 class="text-center">Simple Expense Manager Project</h1>
+
+        <!-- <form id="myform" > -->
+        <div class="container my-5">
+
+            <div class="row">
+                <label for="new Item" id="label-item" class="col-6">Add a new Item:</label>
+                <label for="new Item" class="col-6" align="right">Add a friend 
+                    <button id="addFriend"
+                        class="rounded-circle text-success">+</button>
+                </label>
+            </div>
+
+            <div class="row">
+                <label for="type" class="col-3">Type:</label>
+                <select class="form-control form-control-sm col-3" id="type">
+                    <option value="Cash">Cash</option>
+                    <option value="Card">Card</option>
+                    <option value="Upi">Upi</option>
+                </select>
+                <label for="friend" class="col-3">Add friend:</label>
+                <select class="form-control form-control-sm col-3 friends" size="3" id="friends">
+                    <option value="Abhi">Abhi</option>
+                    <option value="Raj">Raj</option>
+                    <option value="Nilesh">Nilesh</option>
+                </select>
+            </div>
+
+            <div class="row my-3">
+                <label for="name" class="col-3">Name:</label>
+                <input type="text" class="col-3" name="name" id="name" placeholder="What did you spend on?">
+                <label for="date" class="col-3">Date:</label>
+                <input type="date" class="col-3" name="date" id="date" >
+            </div>
+            <div class="row">
+                <label for="curency" class="col-3">Currency:</label>
+                <select class="form-control form-control-sm col-3" id="currency">
+                    <option value="Rupees">Rupees</option>
+                    <option value="USD">USD</option>
+                    <option value="EURO">EURO</option>
+                </select>
+                <label for="amount" class="col-3">Amount:</label>
+                <input type="number" class="col-3" name="amount" id="amount" placeholder="How much?">
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="button" class="btn btn-primary" id="add">Add a new Expense</button>
+        </div>
+        <!-- </form> -->
+    
+        <div class="row my-5 bg-light text-dark">
+            <div class="col border border-dark">
+                <label for="filter" class="col-3-sm">Filter by friend:</label>
+                <select class="col-3 mx-auto mt-2 friends" id="friends-filter">
+                    <option value="Abhi">Abhi</option>
+                    <option value="Raj">Raj</option>
+                    <option value="Nilesh">Nilesh</option>
+                </select>
+            </div>
+            <div class="col border border-dark">
+                <label for="filter" class="col-3-sm">Currency:</label>
+                <select class="col-3-sm mt-2" onchange="convertAmount()" id="currency-filter">
+                    <option value="Rupees">Rupees</option>
+                    <option value="USD">USD</option>
+                    <option value="EURO">EURO</option>
+                </select>
+            </div>
+            <table id="myTable" class="table bg-light mt-0">
+                <caption class="text-center">Your added items will show up here!</caption>
+                <thead>
+                    <tr onclick="myFunction(this)">
+                        <th scope="col">type</th>
+                        <th scope="col">name</th>
+                        <th scope="col">Friend</th>
+                        <th scope="col">date</th>
+                        <th scope="col">amount</th>
+                        <th scope="col">edit</th>
+                        <th scope="col">delete</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr onclick="myFunction(this)">
+                        <td>Cash</td>
+                        <td>Shopping</td>
+                        <td>Abhi</td>
+                        <td>2020-01-08</td>
+                        <td>200</td>
+                        <td><button class="btn btn-sm btn-info" onclick="editThis()">Edit</button></td>
+                        <td><button class="btn btn-sm btn-danger" onclick="deleted()">Delete</button></td>
+                    </tr>
+                    <tr onclick="myFunction(this)">
+                        <td>Card</td>
+                        <td>Party</td>
+                        <td>Raj</td>
+                        <td>2019-12-07</td>
+                        <td>600</td>
+                        <td><button class="btn btn-sm btn-info" onclick="editThis()">Edit</button></td>
+                        <td><button class="btn btn-sm btn-danger " onclick="deleted()">Delete</button></td>
+                    </tr>
+                    <tr onclick="myFunction(this)">
+                        <td>Upi</td>
+                        <td>Touring</td>
+                        <td>Nilesh</td>
+                        <td>2020-11-18</td>
+                        <td>2000</td>
+                        <td><button class="btn btn-sm btn-info" onclick="editThis()">Edit</button></td>
+                        <td><button class="btn btn-sm btn-danger" onclick="deleted()">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+
+    <script src="app.js"></script>
+</body>
+
+</html>
